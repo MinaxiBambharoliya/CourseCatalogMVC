@@ -20,5 +20,7 @@ namespace CourseCatalogMVC.Models
         public bool isWeekendClassAvailable { get; set; }
 
         public Category Category { get; set; }
+
+        public bool isFreeThisWeek { get; set; }
     }
 }

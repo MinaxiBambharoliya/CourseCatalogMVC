@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CourseCatalogMVC.Models
 {
-    interface ICourseRepository
+    public interface ICourseRepository
     {
         IEnumerable<Course> AllCourses { get; }
 

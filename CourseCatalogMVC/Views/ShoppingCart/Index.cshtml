@@ -1,0 +1,55 @@
+﻿@model ShoppingCart
+
+<h2>Shopping cart</h2>
+<hr />
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Course</th>
+            <th scope="col">Fee</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ShoppingCartItems)
+        {
+            <tr>
+                <td scope="row"> @item.Course.Title</td>
+                <td> @item.Amount</td>
+                <td>
+                    <a asp-controller="ShoppingCart"
+                       asp-action="RemoveFromShoppingCart"
+                       asp-route-course=@item.Course
+                       class="btn btn-primary">
+                        Remove
+                    </a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <th scope="row"><b>Total</b></th>
+            <th><b>@Model.GetShoppingCartTotal()</b></th>
+            <th></th>
+        </tr>
+    </tbody>
+</table>
+
+
+<hr />
+<a asp-controller="Course"
+   asp-action="List"
+   class="btn btn-primary">
+    Add Items
+</a>
+<a asp-controller="ShoppingCart"
+   asp-action="ClearShoppingCart"
+   class="btn btn-danger">
+    Empty Cart
+</a>
+<a
+   class="btn btn-primary">
+    Checkout
+</a>
+
+

@@ -1,0 +1,15 @@
+﻿@model Course
+
+    <div class="card border-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">@Model.Title</div>
+        <div class="card-body text-info">
+            <h5 class="card-title">@Model.Category.Name</h5>
+            <p class="card-text">@Model.Description</p>
+            <p class="card-text"><b>@Model.Fee</b></p>
+            <a 
+               asp-controller="ShoppingCart"
+               asp-action="AddToShoppingCart"
+               asp-route-courseId=@Model.CourseId
+               class="btn btn-primary">Add to Cart</a>
+        </div>
+    </div>
